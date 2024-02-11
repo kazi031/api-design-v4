@@ -6,7 +6,7 @@ import { createUpdate, deleteUpdate, getOneUpdate, getUpdates, updateUpdate } fr
 
 const router = Router()
 
-
+ 
 // Product
 
 router.get('/product', getProducts)

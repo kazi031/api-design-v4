@@ -2,9 +2,11 @@ import express from 'express'
 import router from './router'
 import morgan from 'morgan'
 import cors from 'cors'
+const multer = require('multer');
 import { protect } from './modules/auth'
 import { createNewUser, signin } from './handlers/user'
-
+import { createNewEmployee } from './handlers/employee'
+const upload = multer();
 const app = express()
 
 const customLogger = (message) => (req, res, next) => {
@@ -40,6 +42,8 @@ app.get('/', (req,res,next) => {
 
 app.use('/api', protect, router)
 app.post('/user', createNewUser)
+// app.post('/admin', createNewAdmin)
+app.post('/admin',upload.single('image'),createNewEmployee)
 app.post('/signin', signin)  
 
 app.use((err, req, res, next) => {

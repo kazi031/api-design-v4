@@ -18,6 +18,14 @@ model User {
   products  Product[]
 }
 
+model Employee {
+  id          Int      @id @default(autoincrement())
+  name        String
+  designation String
+  image       String
+}
+
+
 model Product {
   id        String   @id @default(uuid())
   createdAt DateTime @default(now())
@@ -27,13 +35,6 @@ model Product {
   belongsTo   User     @relation(fields: [belongsToId], references: [id])
   updates     Update[]
   @@unique([id,belongsToId])
-}
-
-model Employee {
-  id          Int      @id @default(autoincrement())
-  name        String
-  designation String
-  image       String
 }
 
 enum UPDATE_STATUS {
