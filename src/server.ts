@@ -17,6 +17,7 @@ app.use(morgan('dev'))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(customLogger('custom Logger'))
+app.use('/uploads', express.static('uploads'));
 
 // app.use((req, res, next) => {
 //     req.shh_secret = 'doggy'

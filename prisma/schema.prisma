@@ -29,6 +29,13 @@ model Product {
   @@unique([id,belongsToId])
 }
 
+model Employee {
+  id          Int      @id @default(autoincrement())
+  name        String
+  designation String
+  image       String
+}
+
 enum UPDATE_STATUS {
   IN_PROGRESS
   SHIPPED
