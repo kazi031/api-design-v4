@@ -6,7 +6,8 @@ const multer = require('multer');
 import { protect } from './modules/auth'
 import { createNewUser, signin } from './handlers/user'
 import { createNewEmployee } from './handlers/employee'
-const upload = multer();
+// const upload = multer();
+const upload = multer({ dest: 'uploads/' });
 const app = express()
 
 const customLogger = (message) => (req, res, next) => {
