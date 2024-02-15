@@ -21,7 +21,16 @@ export const createNewEmployee = async (req, res, next) => {
 
         fs.renameSync(imagePath, finalDestination);
 
-        const imageUrl = `http://localhost:3000/${finalDestination}`;
+
+        let baseUrl;
+
+        if (process.env.NODE_ENV === 'production') {
+            baseUrl = 'https://api-design-v4-jr3v.onrender.com';
+        } else {
+            baseUrl = 'http://localhost:3000';
+        }
+
+        const imageUrl = `${baseUrl}/${finalDestination}`;
         // const image = req.file.buffer;
 
         const createdEmployee = await prisma.employee.create({
