@@ -27,7 +27,7 @@ export const createNewEmployee = async (req, res, next) => {
         if (process.env.NODE_ENV === 'production') {
             baseUrl = 'https://api-design-v4-jr3v.onrender.com';
         } else {
-            baseUrl = 'http://localhost:3000';
+            baseUrl = 'http://localhost:3001';
         }
 
         const imageUrl = `${baseUrl}/${finalDestination}`;

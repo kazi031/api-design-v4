@@ -17,10 +17,10 @@ const customLogger = (message) => (req, res, next) => {
 
 app.use(cors())
 app.use(morgan('dev'))
+app.use('/uploads', express.static('uploads'));
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
-app.use(customLogger('custom Logger'))
-app.use('/uploads', express.static('uploads'));
+app.use(customLogger('custom Logger'));
 
 // app.use((req, res, next) => {
 //     req.shh_secret = 'doggy'
